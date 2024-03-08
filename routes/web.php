@@ -18,4 +18,4 @@ use App\Http\Controllers\PublicController;
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
 
-Route::get('/nuovo/annuncio',[AnnouncementController::class, 'createAnnouncement'])->name('announcement.create');
+Route::get('/nuovo/annuncio',[AnnouncementController::class, 'createAnnouncement'])->middleware('auth')->name('announcement.create');
