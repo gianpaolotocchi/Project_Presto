@@ -40,6 +40,9 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('announcement.create')}}">Crea Annuncio</a>
+                </li>
                 @endauth
                 
                 <li class="nav-item">
