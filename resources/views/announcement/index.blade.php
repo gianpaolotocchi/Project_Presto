@@ -1,9 +1,9 @@
 <x-layout>
     <header class="text-center my-3">
-        <x-header title="Benvenuto in Presto" />
+        <x-header title="Tutti gli annunci" />
     </header>
     <div class="container-fluid">
-        <h2 class="text-center">Annunci più recenti</h2>
+         
         <div class="row justify-content-evenly">
             
             @foreach ($announcements as $announcement)
@@ -15,7 +15,7 @@
                         <p class="card-text">{{$announcement->body}}</p>
                         <p class="card-text">{{$announcement->price}}</p>
                         <a href="{{route('showAnnouncement', compact('announcement'))}}" class="btn btn-primary">Visualizza</a>
-                        <a href="{{route('categoryShow',['category'=>$announcement->category])}}" class="my-2 border-top pt-2 border-dark card-link shadow btn btn-success">Categoria: {{$announcement->category->name}}</a>
+                        <a href="{{route('categoryShow',['category'=> $announcement->category])}}" class="my-2 border-top pt-2 border-dark card-link shadow btn btn-success">Categoria: {{$announcement->category->name}}</a>
                         <p>Publicato il: {{$announcement->created_at->format('d/m/Y')}} - Autore: {{$announcement->user->name ?? ''}}</p>
                     </div>
                 </div>
@@ -23,4 +23,5 @@
             @endforeach
         </div>
     </div>
+    {{ $announcements->links() }}
 </x-layout>
