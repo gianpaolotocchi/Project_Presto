@@ -10,7 +10,7 @@
                     <a class="nav-link active" aria-current="page" href="{{route('homepage')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('indexAnnouncement')}}">Tutti gle Annunci</a>
+                    <a class="nav-link" href="{{route('indexAnnouncement')}}">Tutti gli Annunci</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -32,15 +32,26 @@
                         @foreach ($categories as $category)
                         <li><a class="dropdown-item" href="{{route('categoryShow', compact('category'))}}">{{$category->name}}</a></li>
                         <li><hr class="dropdown-divider"></li>
-                            
+                        
                         @endforeach
                     </ul>
                 </li>
                 @endguest
                 @auth
+                @if (Auth::user()->is_revisor)
+                
+                <li class="nav-item">
+                    <a class="nav-link  position-relative" aria-current="page" href="{{route('revisor.index')}}" >Zona revisore
+                        <span class=" position-absolute top-0  traslate-middle  badge rounded-pill bg-danger">
+                            {{\App\Models\Announcement::toBeRevisonedCount()}}
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </a>
+                </li>
+                @endif
                 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{Auth::user()->name}}
                     </a>
                     <ul class="dropdown-menu">

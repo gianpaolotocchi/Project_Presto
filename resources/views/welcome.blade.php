@@ -3,6 +3,49 @@
         <x-header title="Benvenuto in Presto" />
     </header>
     <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-8 text-center">
+                @if (session()->has('access.denied'))
+                <div class="alert alert-danger" id="flash-message">
+                    {{ ('Attenzione! Solo i revisori hanno accesso a quest\'area!') }}
+                </div>
+                @endif 
+                @if (session()->has('message'))
+                <div class="alert alert-success" id="flash-message">
+                    {{ session('message') }}
+                    
+                @endif
+            </div>
+        </div>
+    </div>
+    
+
+     {{-- <div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-8 text-center">
+            <div id="flash-message">
+                @switch(session()->get('flash_message'))
+                    @case('access.denied')
+                        <div class="alert alert-danger" role="alert">
+                            Attenzione! Solo i revisori hanno accesso a quest'area!
+                        </div>
+                        @break
+                    @case('message')
+                        <div class="alert alert-success" role="alert">
+                            {{ session('message') }}
+                        </div>
+                        @break
+                    @default
+                @endswitch
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+     
+
+    
+    <div class="container-fluid">
         <h2 class="text-center">Annunci più recenti</h2>
         <div class="row justify-content-evenly">
             

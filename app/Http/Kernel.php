@@ -2,10 +2,24 @@
 
 namespace App\Http;
 
+use App\Console\Commands\MakeUserRevisor;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
+
+ 
+   /** 
+    * The Artisan commands provided by your application.
+
+    * @var array
+    */
+
+    protected $commands = [
+        MakeUserRevisor::class,
+    ];
+
+
     /**
      * The application's global HTTP middleware stack.
      *
@@ -53,6 +67,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $middlewareAliases = [
+        'IsRevisor' => \App\Http\Middleware\IsRevisor::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,

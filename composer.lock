@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "999975366a4e015ab712b4e7f40e5125",
+    "content-hash": "965bce528a203eeb33ea98733f9e6493",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -3545,6 +3545,55 @@
                 }
             ],
             "time": "2023-11-08T05:53:05+00:00"
+        },
+        {
+            "name": "rappasoft/laravel-helpers",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rappasoft/laravel-helpers.git",
+                "reference": "044e2c1595f43d6e6d0a704a9813cef468c5df17"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rappasoft/laravel-helpers/zipball/044e2c1595f43d6e6d0a704a9813cef468c5df17",
+                "reference": "044e2c1595f43d6e6d0a704a9813cef468c5df17",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/arrays.php",
+                    "src/classes.php",
+                    "src/helpers.php",
+                    "src/strings.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthony Rappa",
+                    "email": "rappa819@gmail.com"
+                }
+            ],
+            "description": "Laravel Helpers for Non-Laravel Projects",
+            "keywords": [
+                "String helpers",
+                "array helpers",
+                "helpers",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/rappasoft/laravel-helpers/issues",
+                "source": "https://github.com/rappasoft/laravel-helpers/tree/v2.1.0"
+            },
+            "time": "2023-04-24T13:51:20+00:00"
         },
         {
             "name": "symfony/console",
