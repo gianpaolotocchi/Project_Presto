@@ -12,18 +12,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('indexAnnouncement')}}">Tutti gli Annunci</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                @guest
-                
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('register')}}">Registrati</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('login')}}">Accedi</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Categorie
@@ -36,6 +24,19 @@
                         @endforeach
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                @guest
+                
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('register')}}">Registrati</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('login')}}">Accedi</a>
+                </li>
+                
                 @endguest
                 @auth
                 @if (Auth::user()->is_revisor)
@@ -50,13 +51,13 @@
                 </li>
                 @endif
                 
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown  ms-2">
                     <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{Auth::user()->name}}
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li class="dropdown-item" ></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="/logout" onclick="event.preventDefault(); document.getElementById('form-logout').submit();">Logout</a>
                             <form id="form-logout" action="{{route('logout')}}" method="post" class="d-none">
@@ -69,10 +70,20 @@
                     <a class="nav-link" href="{{route('announcement.create')}}">Crea Annuncio</a>
                 </li>
                 @endauth
-                
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Lingue
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item" ><x-languages lang="en" /></li>
+                        <li class="dropdown-item" ><x-languages lang="es" /></li>
+                        
+                        <li class="dropdown-item" ><x-languages lang="it" /></li>
+                    </ul>
                 </li>
+                
+                
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

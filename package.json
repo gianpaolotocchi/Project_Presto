@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "watch": "npm run dev && chokidar 'resources/views/**/*.blade.php' --command 'npm run hot'"
     },
     "devDependencies": {
         "axios": "^1.6.4",
@@ -12,7 +13,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.8",
-        "bootstrap": "^5.3.2",
+        "bootstrap": "^5.3.3",
         "lodash": "^4.17.21"
     }
 }

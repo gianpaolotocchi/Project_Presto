@@ -1,6 +1,6 @@
 <x-layout>
     <header class="text-center my-3">
-        <x-header title="Tutti gli annunci" />
+        <x-header title="{{__('ui.allAnnouncements')}}" />
     </header>
     <div class="container-fluid">
          
@@ -16,7 +16,7 @@
                         <p class="card-text">{{$announcement->price}}</p>
                         <a href="{{route('showAnnouncement', compact('announcement'))}}" class="btn btn-primary">Visualizza</a>
                         <a href="{{route('categoryShow',['category'=> $announcement->category])}}" class="my-2 border-top pt-2 border-dark card-link shadow btn btn-success">Categoria: {{$announcement->category->name}}</a>
-                        <p>Publicato il: {{$announcement->created_at->format('d/m/Y')}} - Autore: {{$announcement->user->name ?? ''}}</p>
+                        <p>{{__('ui.publishedOn')}}:{{$announcement->created_at->format('d/m/Y')}} - Autore: {{$announcement->user->name ?? ''}}</p>
                     </div>
                 </div>
             </div>

@@ -18,8 +18,8 @@ use App\Http\Controllers\AnnouncementController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 Route::get('/categoria/{category}', [PublicController::class, 'categoryShow'])->name('categoryShow');
-
-
+// rotta che gestisce le lingue
+Route::post('/setLocale/{locale}', [PublicController::class, 'setLocale'])->name('setLocale');
 
 // Sezione annunci
 Route::get('/nuovo/annuncio',[AnnouncementController::class, 'createAnnouncement'])->middleware('auth')->name('announcement.create');
