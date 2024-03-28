@@ -13,7 +13,7 @@
                 @if (session()->has('message'))
                 <div class="alert alert-success" id="flash-message">
                     {{ session('message') }}
-                    
+                </div>    
                 @endif
             </div>
         </div>
@@ -42,7 +42,7 @@
     </div>
 </div> --}}
 
-     
+
 
     
     <div class="container-fluid">
@@ -51,8 +51,8 @@
             
             @foreach ($announcements as $announcement)
             <div class="col-9 col-md-4 col-lg-3 my-4">
-                <div class="card shadow" >
-                    <img src="https://picsum.photos/200" class="card-img-top p-e rounded" alt="...">
+                <div class="card shadow" style="width: 18rem;" >
+                    <img src="{{ !$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->geturl(400,300) : 'https://picsum.photos/200' }}" class="card-img-top p-e rounded" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$announcement->title}}</h5>
                         <p class="card-text">{{$announcement->body}}</p>

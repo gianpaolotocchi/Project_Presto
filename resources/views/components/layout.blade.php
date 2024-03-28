@@ -9,7 +9,7 @@
     @livewireStyles
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="stylesheet" href="~flag-icon-css/css/flag-icon.css">
+    {{-- <link rel="stylesheet" href="~flag-icon-css/css/flag-icon.css"> --}}
 
     <title>Presto</title>
 </head>

@@ -64,3 +64,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+*non vengono visualizzate le img-preview in create announcement sembrerebbe che il codice sia corretto in console non visualizzo nessun errore e la sorgente mi riporta le immagini inserite ma non le visualizzo in anteproma file correlati view/livewire create-announcement, style.css, app/http/livewire/createAnnouncement app/model/announcement e /image
