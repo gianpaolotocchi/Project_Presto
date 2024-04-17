@@ -40,3 +40,6 @@ Route::get('/richiesta/revisore', [RevisorController::class, 'becomeRevisor'])->
 
 //rendi utente revisore 
 Route::get('/rendi/revisore/{user}', [RevisorController::class, 'makeRevisor'])->name('make.revisor');
+
+// rotta per la Barra di ricerca
+Route::get('ricerca/annuncio', [PublicController::class, 'searchAnnouncements'])->name('search.Announcements');

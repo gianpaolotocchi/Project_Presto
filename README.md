@@ -68,3 +68,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 *non vengono visualizzate le img-preview in create announcement sembrerebbe che il codice sia corretto in console non visualizzo nessun errore e la sorgente mi riporta le immagini inserite ma non le visualizzo in anteproma file correlati view/livewire create-announcement, style.css, app/http/livewire/createAnnouncement app/model/announcement e /image
+
+
+• $announcement->images()->first()->geturl(400,300) codice per resizing immagini non funzionante nessun errore in view ma non visualizzo immagine in card

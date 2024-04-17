@@ -2,11 +2,15 @@
 
 namespace App\Livewire;
 
+
+
 use Livewire\Component;
+
 use App\Models\Category;
 use App\Jobs\ResizeImage;
 use App\Models\Announcement;
 use Livewire\WithFileUploads;
+use App\Jobs\GoogleVisionSafeSearch;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -31,9 +35,10 @@ use WithFileUploads;
         'body' => 'required|min:10',
         'category' => 'required',
         'price' => 'required|numeric|min:1',
-        'images.*' => 'image|max:1024',
-        'temporary_images.*' => 'image|max:1024',
-        'temporary_images.*' => 'required',
+
+        'images.*' => 'required|image|max:1024|dimensions:width= 300, height= 400,',
+
+        'temporary_images.*' => 'required|image|max:1024|dimensions:width= 300, height= 400,',
 
     ];
 
@@ -43,16 +48,20 @@ use WithFileUploads;
         'numeric' => 'il campo :attribute deve essere un numero',
         'price.min' => 'il prezzo minimo è 1 euro',
         'images.image' => 'il file caricato non è un\'immagine',
+        'images.dimensions' => 'L\'immagine deve essere larga 300px e alta 400px',
         'images.max' => 'il file caricato dev\'essere massimo 1MB',
         'temporary_images.image' => 'il file caricato non è un\'immagine',
         'temporary_images.max' => 'il file caricato dev\'essere massimo 1MB',
         'temporary_images.required' => 'L\'immagine è richiesta',
+        'temporary_images.dimensions' => 'L\'immagine deve essere larga 300px e alta 400px',
+
     ];
 
     public function updatedTemporaryImages()
     {
+        
         if($this->validate([
-            'temporary_images.*'=>'image|max:3024'
+            'temporary_images.*'=>'image|max:1024'
             ]))
             {
             foreach ($this->temporary_images as $image) {
@@ -83,7 +92,12 @@ use WithFileUploads;
                 $this->announcement->images()->create([
                     'path' => $image->store($newFileName, 'public'),
                 ]);
-                dispatch(new ResizeImage($newImage->path, 400,300));
+
+
+                // dispatch(new ResizeImage($newImage->path, 300,300));
+
+                dispatch(new GoogleVisionSafeSearch($newImage->id));
+
             }
             File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
@@ -99,7 +113,7 @@ use WithFileUploads;
         session()->flash('message', 'Annuncio creato con successo, in attesa di revisione.');
         $this->cleanForm();
     }
-
+    
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
